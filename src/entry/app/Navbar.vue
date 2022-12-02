@@ -11,7 +11,7 @@
 
                 <div class="avatar-wrapper">
                     <img :src="formatHeadPic()" class="user-avatar">
-                    <span class="name-avatar">你好: {{ username }}</span>
+                    <span class="name-avatar">你好: {{ userInfo.username }}</span>
                     <i class="el-icon-caret-bottom" />
                 </div>
                 
@@ -36,7 +36,6 @@
 </template>
 
 <script>
-    import Cookies from 'js-cookie'
     import {    
         mapGetters,
         mapState
@@ -49,8 +48,7 @@
         name: 'app-Navbar',
         data() {
             return {
-                // userInfo 里面拿的不准的，，，还得cookie 中取
-                username: Cookies.get('mauna_username')
+                
             }
         },
         components: {
@@ -62,14 +60,14 @@
             ...mapState('user', ['userInfo']),
         },
         mounted() {
-            // console.log('userInfo', this.userInfo)
+
         },  
         methods: {
             formatHeadPic() {
-                if(this.userInfo?.photo === 'nopic.svg') {
-                    return `${this.avatarurl}avatar/nopic.svg` 
+                if(!this.userInfo?.photo) {
+                    return require('@/assets/images/headpic/default_headpic.jpg')
                 } else {
-                    return `${this.avatarurl}${this.userInfo?.photo}`
+                    return this.userInfo?.photo
                 }
             },
             toggleSideBar() {

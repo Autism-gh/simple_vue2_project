@@ -59,7 +59,7 @@
   import {
     getPoiByAddressOrderGaode,
     getCurrentRangeCenter
-  } from '@/util/map/mapGaodeWebApi'
+  } from '../webutil/mapGaodeWebApi'
 
   export default {
     name: 'MapSearch',

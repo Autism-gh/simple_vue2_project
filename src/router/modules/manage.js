@@ -3,47 +3,39 @@
 import Layout from '@/entry/Index'
 
 const manageRouter = {
-    path: '/normal',
+    path: '/manage',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'normal',
+    name: 'manage',
     meta: {
         title: '管理',
         icon: 'icon-assetsmanage'
     },
     children: [
         {
-            path: 'maptest',
-            component: () => import('@/views/webDemo/MapTest'),
-            name: 'MapTest',
+            path: '/ontable',
+            component: () => import('@/views/pageDemo/OnlyTable/OnlyTable'),
+            name: 'OnlyTable',
             meta: {
-                title: '地图调试'
+                title: '只有一个表格'
             }
         },
         {
-            path: 'treeDemo',
-            component: () => import('@/views/webDemo/TreeDemo'),
-            name: 'TreeDemo',
+            path: '/doubletable',
+            component: () => import('@/views/pageDemo/DoubleTable/DoubleTable'),
+            name: 'DoubleTable',
             meta: {
-                title: 'ElementTree Demo'
+                title: '只有两个表格'
             }
         },
         {
-            path: 'treeExtand',
-            component: () => import('@/views/webDemo/TreeExtand'),
-            name: 'TreeExtand',
+            path: '/treeAndTable',
+            component: () => import('@/views/pageDemo/TreeAndTable/TreeAndTable'),
+            name: 'TreeAndTable',
             meta: {
-                title: 'ElementTree 拓展'
+                title: '树和表格'
             }
-        },
-        {
-            path: 'treeMethods',
-            component: () => import('@/views/webDemo/TreeMethods'),
-            name: 'TreeMethods',
-            meta: {
-                title: 'ElementTree 方法'
-            }
-        },
+        }
     ]
 }
 

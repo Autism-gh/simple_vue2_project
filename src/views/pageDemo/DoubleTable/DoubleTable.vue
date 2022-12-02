@@ -1,11 +1,11 @@
 <template>
   <div>
-    成品库存
+
   </div>
 </template>
 <script>
 export default {
-  name: 'ProductWareHouse',
+  name: 'DoubleTable',
   components: {  },
   props: {  },
   data () {

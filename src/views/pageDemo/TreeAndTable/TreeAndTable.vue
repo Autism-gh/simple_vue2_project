@@ -1,11 +1,11 @@
 <template>
   <div>
-    原材料库存
+
   </div>
 </template>
 <script>
 export default {
-  name: 'RawMaterialInventory',
+  name: 'TreeAndTable',
   components: {  },
   props: {  },
   data () {

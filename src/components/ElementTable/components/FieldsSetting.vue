@@ -150,7 +150,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 0 10px 10px;
+    padding: var(--default-padding);
   }
 
   .setting-body {

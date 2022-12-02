@@ -1,5 +1,25 @@
 module.exports = {
-    title: '吉利协同云',
+    title: '基础管理页面模板',
+
+    copyright: 'Autism',
+
+    // 允许登入的用户
+    rootUser: {
+        admin: 'abc123456d',
+        wuchuang: 'autism',
+        lynn: '123456'
+    },
+
+    // 模拟用户信息
+    userInfo: {
+        userName: '',
+        address: '',
+        mapCenter: '',
+        age: '',
+        vehicle: '',
+        photo: ''
+    },
+
 
     /**
      * @type {boolean} true | false

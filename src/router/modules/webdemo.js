@@ -8,34 +8,42 @@ const demoRouter = {
     redirect: 'noRedirect',
     name: 'demo',
     meta: {
-        title: 'WEB组件调试',
+        title: 'WEB組件測試',
         icon: 'icon-assetsmanage'
     },
     children: [
         {
-            path: '/dispatch/task/index',
-            component: () => import('@/views/app/ProductionPlan/ProductionPlan'),
-            name: 'ProductionPlan',
+            path: 'maptest',
+            component: () => import('@/views/webDemo/MapTest'),
+            name: 'MapTest',
             meta: {
-                title: '生产计划'
+                title: '地图调试'
             }
         },
         {
-            path: '/dispatch/mission/index',
-            component: () => import('@/views/app/ProductWareHouse/ProductWareHouse'),
-            name: 'ProductWareHouse',
+            path: 'treeDemo',
+            component: () => import('@/views/webDemo/TreeDemo'),
+            name: 'TreeDemo',
             meta: {
-                title: '成品库存'
+                title: 'ElementTree Demo'
             }
         },
         {
-            path: '/dispatch/message/index',
-            component: () => import('@/views/app/RawMaterialInventory/RawMaterialInventory'),
-            name: 'RawMaterialInventory',
+            path: 'treeExtand',
+            component: () => import('@/views/webDemo/TreeExtand'),
+            name: 'TreeExtand',
             meta: {
-                title: '原材料库存'
+                title: 'ElementTree 拓展'
             }
-        }
+        },
+        {
+            path: 'treeMethods',
+            component: () => import('@/views/webDemo/TreeMethods'),
+            name: 'TreeMethods',
+            meta: {
+                title: 'ElementTree 方法'
+            }
+        },
     ]
 }
 

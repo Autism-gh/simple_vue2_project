@@ -10,8 +10,14 @@ export { default as PlayLine } from './util/playline'
 
 import * as LeafletUtil from './maputils'
 
+import * as GaodeWebApi from './webutil/mapGaodeWebApi'
+
+import * as LatlngChange from './webutil/coordinateChange'
+
 export {
-    LeafletUtil
+    LeafletUtil,
+    GaodeWebApi,
+    LatlngChange
 }
 
 export default L

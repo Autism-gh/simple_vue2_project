@@ -13,9 +13,6 @@ Vue.prototype.$openLoading = (type) => {
     store.commit('app/TOGGLE_LOADING', type)
 }
 
-
 Vue.prototype.checkRoot = (permiss) => {
     return true
 }
-
-Vue.prototype.avatarurl = process.env.VUE_APP_UPLOAD_URL

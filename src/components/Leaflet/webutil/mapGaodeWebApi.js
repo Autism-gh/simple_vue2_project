@@ -9,8 +9,6 @@ import PinyinMatch from 'pinyin-match'
 
 const gaodeCityCode = require('./mapGaodeCityCode.json')
 
-// const gaodekeyLLQ = '8678d946c69dff3fe9090aaf2cc090c7'
-
 const gaodekeyLLQ = 'f0b73d90005a5af4566c1d1e5661717f'
 
 

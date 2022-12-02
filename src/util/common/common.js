@@ -155,3 +155,23 @@ export const S4 = () => {
 export const getCustomuuid = () => {
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()); 
 }
+
+export const checkEmptyParmas = (parmas) => {
+    const type = toString.call(parmas)
+
+    if (parmas === undefined || parmas === null) {
+        return false
+    } else {
+        let result = true
+
+        if (type === '[object String]' && parmas === '') {
+            result = false
+        }
+    
+        if (type === '[object Array]' && !parmas?.length) {
+            result = false
+        }
+        
+        return result
+    }
+}
