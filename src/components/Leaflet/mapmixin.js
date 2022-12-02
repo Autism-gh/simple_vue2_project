@@ -13,7 +13,6 @@ import {
 
 import _ from 'lodash'
 
-import { addNewView, getViewList, setViewDefault, removeView } from '@/axios/app/map'
 import { isString } from '@/util/common/type-check'
 
 export default {
@@ -54,7 +53,6 @@ export default {
                         name: '比例尺',
                         key: 'scale_control'
                     },
-                    //   { name: '级别工具', key: 'zoom_control' },
                     {
                         name: '鹰眼工具',
                         key: 'mini_control'
@@ -67,11 +65,6 @@ export default {
                 oldselect: ['search_control', 'center_address', 'scale_control'],
                 selectList: ['search_control', 'center_address', 'scale_control'],
                 map: []
-            },
-
-            view: {
-                value: '',
-                list: []
             },
 
             bottomaddress: {
@@ -295,80 +288,6 @@ export default {
         },
 
         /**
-         * 视野得增删改查
-         * @returns 
-         */
-        async getVisuaFieldCenter() {
-            const result = await getViewList()  
-            if(!result || !result.state || !result.data || !result.data?.length) {
-                this.view.list = []
-                return
-            }
-            const active = result?.data.find(item => item.is_default)
-            this.view.list = result.data || []
-            this.changeCurrentView(active)
-        },
-
-        async setVisuaFieldDefault({ _id }) {
-            const result = await setViewDefault({ id: _id })
-            if(!result || !result.state) {
-                this.$warning(result.message || '设置失败')
-                return
-            }
-            this.$success('设置成功')
-            this.getVisuaFieldCenter()
-        },
-
-        async removeVisuaField({ _id }) {
-            const result = await removeView({ id: _id })
-            if(!result || !result.state) {
-                this.$warning(result.message || '删除失败')
-                return
-            }
-            this.$success('删除成功')
-            this.getVisuaFieldCenter()
-        },
-
-        async addNewVisuaField() {
-            if(!this.view.value) {
-                this.$warning('请输入视野名称')
-                return
-            }
-            const zoom = this.mapInstance.getZoom()
-            const center = this.mapInstance.getCenter()
-            const { lat, lng } = center
-            const parmas = {
-                class: 'visual_field',
-                data: {
-                    name: this.view.value,
-                    zoom: zoom.toString(),
-                    center: {
-                        __type: 'GeoPoint',
-                        latitude: lat.toString(),
-                        longitude: lng.toString(),
-                    },
-                    is_default: 0
-                }
-            }
-            const formatParmas = JSON.stringify(parmas)
-            const result = await addNewView(formatParmas)
-            if(!result || !result.status) {
-                this.$warning(result.message || '添加失败')
-                return
-            }
-
-            this.view.value = ''
-            this.getVisuaFieldCenter()
-        },
-
-        changeCurrentView(item) {
-            if(!item) return
-            const { zoom, center } = item
-            this.mapInstance && this.mapInstance.setView([center[1], center[0]], zoom)
-        },
-
-
-        /**
          * 开始监听中心点地址
          */
         startListerCenter(state) {
@@ -432,6 +351,6 @@ export default {
     },
 
     mounted () {
-        this.getVisuaFieldCenter()
+
     }
 }

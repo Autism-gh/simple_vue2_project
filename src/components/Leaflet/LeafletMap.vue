@@ -17,36 +17,7 @@
         <!-- 右上角控制器 -->
         <div class="leaflet-control-container">
           <div class="left_top_control bg" v-show="control.show">
-            <div class="row">
-              <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                  <IconBtn icon="iconfont icon-wodeshiye" title="我的视野"></IconBtn>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <ul class="custom-drop-view">
-                    <el-input v-model="view.value" placeholder="请输入视野名称">
-                      <template slot="append">
-                        <el-button type="primary" icon="el-icon-plus" @click="addNewVisuaField"></el-button>
-                      </template>
-                    </el-input>
-                  </ul>
-                  <ul class="custom-drop-row no-data" v-show="!view.list.length">暂无保存数据</ul>
-                  <ul class="custom-view-row" v-show="view.list.length">
-                    <li v-for="item in view.list" :key="item._id" @click="changeCurrentView(item)">
-                      <div class="view-name">{{ item.name }}</div>
-                      <div class="view-btn">
-                        <template v-if="item.is_default"><span>(默认)</span></template>
-                        <template v-else>
-                          <el-tag @click.stop="setVisuaFieldDefault(item)" type="success">设为默认</el-tag>
-                        </template>
-                        <el-tag @click.stop="removeVisuaField(item)" type="danger"><i class="el-icon-delete"></i>
-                        </el-tag>
-                      </div>
-                    </li>
-                  </ul>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </div>
+
             <div class="row" @click="startMeasureControl">
               <IconBtn icon="iconfont icon-ceju" title="距离测量"></IconBtn>
             </div>
