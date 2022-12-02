@@ -1,7 +1,7 @@
 <template>
     <div class="login">
         <div class="login__main">
-            <div class="login_title">{{ title }}</div>
+            <!-- <div class="login_title">{{ title }}</div> -->
 
             <div class="login__content">
                 <LoginForm></LoginForm>

@@ -13,6 +13,11 @@ module.exports = {
     // 模拟用户信息
     userInfo: {
         userName: '',
+        role: '基础角色',
+        name: '武闯',
+        telephone: '18868403985',
+        email: 'autism_wy@163.com',
+        remark: '测试系统',
         address: '',
         mapCenter: '',
         age: '',

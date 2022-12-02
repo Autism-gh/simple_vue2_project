@@ -9,7 +9,7 @@ const demoRouter = {
     name: 'demo',
     meta: {
         title: 'WEB組件測試',
-        icon: 'icon-assetsmanage'
+        icon: 'el-icon-star-off'
     },
     children: [
         {
