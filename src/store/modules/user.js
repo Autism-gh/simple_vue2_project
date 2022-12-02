@@ -16,17 +16,6 @@ import {
 import moment from 'moment'
 import defaultSetting from '@/setting'
 
-export const formatApiMenu = (menu) => {
-    let result = []
-    const type = toString.call(menu)
-    if (type === '[object Array]') {
-        result = menu
-    } else if (type === '[object Object]') {
-        result = Object.values(menu)
-    }
-    return result
-}
-
 const state = {
     token: getToken(),
 
