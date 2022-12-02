@@ -1,0 +1,167 @@
+.table-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    .right-click-container {
+        position: fixed;
+        background-color: var(--color-white);
+        box-shadow: var(--box-shadow-base);
+        width: max-content;
+        z-index: 1000;
+        padding: 10px 0;
+
+        li {
+            padding: 0 20px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+    }
+
+
+    .el-table-slot-btn, .el-table-slot-icon {
+        // display: flex;
+        // // justify-content: center;
+        width: max-content;
+        margin: auto;
+    }
+
+    /deep/.el-table__body-wrapper {
+        // z-index: 2;
+        border-bottom: solid 1px #eee;
+
+        &.is-scrolling-left~.el-table__fixed,
+        &.is-scrolling-right~.el-table__fixed-right {
+            box-shadow: 0 0 10px rgba(0,0,0, 0.12);
+        }
+    }
+    
+    .query-wrapper, .botton-wrapper, .table-wrapper, .page-wrapper {
+        position: relative;
+        margin-top: var(--default-padding);
+    }
+
+    .query-wrapper {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 var(--default-padding) 0 var(--default-padding);
+
+        /deep/ .filter-item {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            margin-right: var(--default-padding);
+            margin-bottom: var(--default-padding);
+
+            .title {
+                padding-right: var(--default-padding);
+            }
+
+            .control {
+                width: calc(100% - 100px);
+                flex-grow: 1;
+            }
+
+            // + .filter-item {
+            //     margin-left: var(--default-padding);
+            // }
+
+            &:last-of-type {
+                margin-right: var(--default-padding);
+            }
+
+            &.mr {
+                margin-right: var(--default-padding);
+            }
+            &.ml {
+                margin-left: var(--default-padding);
+            }
+        }
+
+        .filter-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .first-floor {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .filter-right {
+                position: relative;
+            }
+
+            .filter-more-icon {
+                position: absolute;
+                top: 6px;
+                font-size: 16px;
+                right: 65px;
+            }
+        }
+
+        .extand-floor {
+            margin-top: var(--default-padding);
+        }
+    }
+
+    .botton-wrapper {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 var(--default-padding) 0 var(--default-padding);
+    }
+
+    .table-wrapper {
+        position: relative;
+        height: calc(100% - 250px);
+        flex: 1;
+        padding: 0 var(--default-padding) 0 var(--default-padding);
+
+        .el-table-custom-entry {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 50px);
+            left: 0;
+            top: 40px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /deep/ .element-table-icon {
+            font-size: 18px;
+            margin: 0 5px;
+            cursor: pointer;
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+
+        /deep/ .element-table-text {
+            margin: 0 5px;
+            cursor: pointer;
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }   
+
+    .page-wrapper {
+        position: relative;
+        flex-shrink: 0;
+        padding: 0 var(--default-padding);
+        margin-bottom: var(--default-padding);
+
+        .page-left {
+            float: left;
+        }
+        .page-right {
+            float: right;
+        }
+    }
+}

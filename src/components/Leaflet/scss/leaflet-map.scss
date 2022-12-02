@@ -1,0 +1,40 @@
+// 图例
+.leaflet-control-scale {
+    font-size: 12px;
+}
+
+// 画图的编辑按钮
+.leaflet-editing-icon {
+    border-radius: 50%;
+}
+
+// 测距关闭按钮
+.measure-close {
+    .leaflet-layer_close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        background-color: rgba(0,0,0,0.86);
+        color: var(--color-white);
+        box-shadow: var(--box-shadow-base);
+        border-radius: 50%;
+        font-size: 14px;
+        width: 18px!important;
+        height: 18px!important;
+    }
+}
+
+.leaflet-popup {
+    .leaflet-popup-content-wrapper {
+        border-radius: 4px;
+    }
+    .leaflet-popup-content {
+        margin: 0;
+    }
+}
+
+
+.leaflet-arrow-icon {
+    color: #FFFFFF;
+}

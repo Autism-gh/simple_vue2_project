@@ -1,0 +1,71 @@
+@mixin b($block) {
+    $B: $block !global;
+    .#{$B} {
+        @content;
+    }
+}
+
+$modifier-separator: '--';
+
+@mixin m($modifier) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    }
+
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
+}
+
+
+@include b(flex) {
+    display: flex;
+    @include m(center) {
+        align-items: center;
+        justify-content: center;
+    }
+    @include m(start) {
+        justify-content: flex-start;
+        align-items: center;
+    }
+    @include m(end) {
+        justify-content: flex-end;
+        align-items: center;
+    }
+    @include m(bt) {
+        justify-content: space-between;
+        align-items: center;
+    }
+    @include m(ar) {
+        justify-content: space-around;
+        align-items: center;
+    }
+    @include m(ev) {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+
+@include b(font) {
+    @include m(12) {
+        font-size: 12px;
+    }
+    @include m(14) {
+        font-size: 14px;
+    }
+    @include m(16) {
+        font-size: 16px;
+    }
+    @include m(18) {
+        font-size: 18px;
+    }
+    @include m(20) {
+        font-size: 20px;
+    }
+}

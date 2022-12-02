@@ -1,0 +1,110 @@
+/**
+
+  样式重置
+
+*/
+
+@font-face {
+    font-family: 'OpenSans';
+    src:url(../font/OpenSans-Regular.ttf) format('truetype');
+  }
+  
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    // font-size: 625%; // 16 * 6.25 = 100  in chrome 16 * 0.625 = 10 <12 ==> font-size:12px
+    font-size: 13px;
+    font-family: "微软雅黑",Arial,sans-serif, OpenSans, "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei";
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-size: 0.14rem;
+  
+  }
+  
+  ul, ol, li, dd, dt {
+    list-style-type: none;
+    font-size: 0.12rem;
+  }
+  
+  a {
+    text-decoration: none;
+    outline-style: none;
+    display: inline-block;
+    font-size: 0.12rem;
+    line-height: 30px;
+  }
+  
+  a:link {
+    text-decoration: none;
+    font-size: 0.12rem;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    font-size: 0.12rem;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    font-size: 0.12rem;
+  }
+  
+  a:active {
+    text-decoration: none;
+    font-size: 0.12rem;
+  }
+  
+  select {
+    background-color: #FFF;
+    color: #555;
+    outline: none;
+    font-size: 0.12rem;
+  }
+  
+  input {
+    font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 0.12rem;
+    outline: none; /*消除选中时出现蓝色边框*/
+  }
+  
+  textarea {
+    font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  input::-ms-clear {
+    display: none;
+  }
+  
+  input::-ms-reveal {
+    display: none;
+  }
+  
+  button {
+    outline: none;
+  }
+  
+  label {
+    font-weight: normal;
+  }
+  
+  
+  
+  .w100 {
+    width: 100%;
+  }
+
+  .h100 {
+    height: 100%;
+  }
+  .pointer {
+    cursor: pointer;
+  }

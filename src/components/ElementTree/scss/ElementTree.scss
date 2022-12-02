@@ -1,0 +1,221 @@
+// 图切的有点乱。，。
+@mixin KindImage($width, $height) {
+    background-image: url("@/assets/images/tree/tree_icon.png");
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+
+// 
+.tree-container {
+    .header-wrapper {
+        .query-header {
+            .el-input__inner {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+
+
+    .elementTree-tree-row {
+        .element-tree-node__lock {
+            z-index: 10;
+            .tree-icon-btn {
+                font-size: 16px;
+                & +.tree-icon-btn {
+                    margin-left: 3px;
+                }
+            }
+        }
+
+        .element-tree-node__extand {
+            position: absolute;
+            right: 0;
+            display: none;
+            z-index: 10;
+            .tree-icon-btn {
+                font-size: 16px;
+                & +.tree-icon-btn {
+                    margin-left: 3px;
+                }
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        &:hover {
+            .element-tree-node__extand {
+                display: block;
+            }
+        }
+    }
+
+
+    .hovermernu-wrapper {
+        .custom_warpper {
+            padding: 0 10px 10px 10px;
+            .header {
+                height: 40px;
+                display: flex;
+                align-items: center;
+            }
+            .content {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 12px;
+
+                .hover-row {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    width: 100%;
+                    line-height: 20px;
+                    letter-spacing: 1px;
+
+                    .item {
+                        &:first-child {
+                            width: max-content;
+                            margin-right: var(--default-padding);
+                        }
+
+                        &:last-of-type {
+                            flex-grow: 1;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.tree-container {
+    .el-tree-node__children {
+        width: max-content;
+        min-width: 100%;
+    }
+
+    .elementTree-tree-row {
+        .elementTree-tree-node {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            max-width: calc(100% - 25px);
+
+            .element-tree-node__label {
+                flex-grow: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 13px;
+                display: flex;
+                align-items: center
+            }
+        }
+
+        .tree-icon {
+            &.tag {
+                @include KindImage(5, 2);
+                background-position: -125px -10px;
+            }
+        }  
+
+        &.expanded {
+            .tree-icon {
+                &.tag {
+                    @include KindImage(6, 2);
+                    background-position: -150px -10px;
+                }
+            }
+        }
+    }
+
+}
+
+
+.el-tree {
+    height: 100%;
+
+    &.customtree {
+
+        // 单选模式
+        &--radio {
+
+            .el-checkbox__input {
+                .el-checkbox__inner {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    transition: none;
+                }
+        
+                &.is-checked {
+                    .el-checkbox__inner {
+                        &::after {
+                            top: 2px;
+                            left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 线条引导
+        &--line {
+            .el-tree-node {
+                position: relative;
+            }
+            .el-tree-node__children {
+                padding-left: 26px; // 缩进量
+            }
+    
+            // 竖线
+            .el-tree-node::before {
+                content: "";
+                height: 100%;
+                width: 1px;
+                position: absolute;
+                left: -14px;
+                top: -26px;
+                border-width: 1px;
+                border-left: 1px dashed var(--border-color-base);
+            }
+            // 当前层最后一个节点的竖线高度固定
+            .el-tree-node:last-child::before {
+                height: 38px; // 可以自己调节到合适数值
+            }
+    
+            // 横线
+            .el-tree-node::after {
+                content: "";
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: -14px;
+                top: 12px;
+                border-width: 1px;
+                border-top: 1px dashed var(--border-color-base);
+            }
+    
+            // 去掉最顶层的虚线，放最下面样式才不会被上面的覆盖了
+            & > .el-tree-node::after {
+                border-top: none;
+            }
+            & > .el-tree-node::before {
+                border-left: none;
+            }
+    
+            // 展开关闭的icon
+            .el-tree-node__expand-icon{
+                &.is-leaf{
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,205 @@
+/* 
+
+  字体，文字颜色，边框，背景，动画等等公共样式，请使用这里的样式
+
+*/
+$modifier-separator: '--';
+
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+
+@mixin b($block) {
+  $B: $block !global;
+  .#{$B} {
+    @content;
+  }
+}
+
+html {
+  color: var(--color-text-regular);
+}
+
+
+//文字
+@include b(text) {
+  color: var(--color-text-regular);
+  fill: currentColor;
+  @include m(brand) {
+    color: var(--color-primary);
+  }
+  @include m(secondary) {
+    color: var(--color-text-secondary);
+  }
+  @include m(placeholder) {
+    color: var(--color-text-placeholder);
+  }
+  @include m(white) {
+    color: var(--color-white);
+  }
+  @include m(danger) {
+    color: var(--color-danger);
+  }
+  @include m(warning) {
+    color: var(--color-warning);
+  }
+  @include m(success) {
+    color: var(--color-success);
+  }
+  @include m(info) {
+    color: var(--color-info);
+  }
+}
+
+
+
+//背景
+@include b(bg) {
+  background-color: var(--background-color-base);
+  background-size: cover;
+  @include m(modal) {
+    background-color: var(--background-color-modal);
+  }
+  @include m(light) {
+    background-color: var(--background-color-light);
+  }
+  @include m(lighter) {
+    background-color: var(--background-color-lighter);
+  }
+  @include m('transparent') {
+    background-color: transparent;
+  }
+  @include m(brand) {
+    background-color: var(--color-primary);
+  }
+  @include m(white) {
+    background-color: var(--color-white);
+  }
+  @include m(danger) {
+    background-color: var(--color-danger);
+  }
+  @include m(warning) {
+    background-color: var(--color-warning);
+  }
+  @include m(success) {
+    background-color: var(--color-success);
+  }
+}
+
+
+//边框
+@include b(border) {
+  border-width: 0;
+  border-style: solid;
+  //transition: border .8s;
+  --border-color: var(--border-color-base);
+  @include m(light) {
+    --border-color: var(--border-color-light);
+  }
+  @include m(lighter) {
+    --border-color: var(--border-color-lighter);
+  }
+  @include m(extra-light) {
+    --border-color: var(--border-color-extra-light);
+  }
+  @include m(both) {
+    border: 1px solid var(--border-color-base);
+  }
+  @include m(radius) {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  @include m(r) {
+    border-right: 1px solid var(--border-color-base);
+  }
+  @include m(l) {
+    border-left: 1px solid var(--border-color-base);
+  }
+  @include m(t) {
+    border-top: 1px solid var(--border-color-base);
+  }
+  @include m(b) {
+    border-bottom: 1px solid var(--border-color-base);
+  }
+  @include m(tr) {
+    border-top: 1px solid var(--border-color-base);
+    border-right: 1px solid var(--border-color-base);
+  }
+  @include m(br) {
+    border-bottom: 1px solid var(--border-color-base);
+    border-right: 1px solid var(--border-color-base);
+  }
+  @include m(bl) {
+    border-bottom: 1px solid var(--border-color-base);
+    border-left: 1px solid var(--border-color-base);
+  }
+  @include m(tl) {
+    border-top: 1px solid var(--border-color-base);
+    border-left: 1px solid var(--border-color-base);
+  }
+  @include m(tb) {
+    border-top: 1px solid var(--border-color-base);
+    border-bottom: 1px solid var(--border-color-base);
+  }
+  @include m(lr) {
+    border-left: 1px solid var(--border-color-base);
+    border-right: 1px solid var(--border-color-base);
+  }
+}
+
+@include b(box-shadow) {
+  box-shadow: var(--box-shadow-base);
+}
+
+// padding
+@include b(padding) {
+  @include m(l) {
+    padding-left: var(--default-padding);
+  }
+  @include m(r) {
+    padding-right: var(--default-padding);
+  }
+  @include m(t) {
+    padding-top: var(--default-padding);
+  }
+  @include m(b) {
+    padding-bottom: var(--default-padding);
+  }
+  @include m(lr) {
+    padding-right: var(--default-padding);
+    padding-left: var(--default-padding);
+  }
+}
+
+
+// margin
+@include b(margin) {
+  @include m(l) {
+    margin-left: var(--default-padding);
+  }
+  @include m(r) {
+    margin-right: var(--default-padding);
+  }
+  @include m(t) {
+    margin-top: var(--default-padding);
+  }
+  @include m(b) {
+    margin-bottom: var(--default-padding);
+  }
+  @include m(lr) {
+    margin-right: var(--default-padding);
+    margin-left: var(--default-padding);
+  }
+}
+

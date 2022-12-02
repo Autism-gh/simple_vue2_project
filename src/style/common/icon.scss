@@ -1,0 +1,88 @@
+// 图切的有点乱。，。
+@mixin KindPosition($width, $height) {
+    background-image: url("@/assets/images/tree/tree_icon.png");
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    background-position: ((($width - 1)*- 30px) - 10px) (($height - 1)*- 10px);
+}
+
+
+// 图切的有点乱。，。
+@mixin KindImage($width, $height) {
+    background-image: url("@/assets/images/tree/tree_icon.png");
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+
+//2022 - 11 - 08  从树的样式里拿出来，因为其他地方也想用啊
+.tree-icon {
+    &.platform {
+        // -10 -10
+        @include KindPosition(1, 2);
+    }
+    &.company {
+        // -40 -10
+        @include KindPosition(2, 2);
+    }
+    &.base {
+        // -70 -10
+        @include KindPosition(3, 2);
+    }
+    &.team {
+        // -70 -10
+        @include KindPosition(4, 2);
+    }
+    &.tag {
+        @include KindImage(5, 2);
+        background-position: -125px -10px;
+    }
+    &.plane {
+        @include KindPosition(3, 5);
+    }
+    &.online {
+        @include KindPosition(1, 5);
+    }
+    &.offline {
+        @include KindPosition(2, 5);
+    }
+
+    &.site, &.takesite {
+        @include KindPosition(1, 8);
+        background-position: -10px -72px;
+    }
+
+    &.planebase {
+        @include KindPosition(2, 8);
+    }
+
+
+    &.Polygon {
+        @include KindPosition(3, 11);
+        background-position: -66px -98px;
+    }
+
+    &.Rectangle {
+        @include KindPosition(4, 11);
+        background-position: -94px -98px;
+    }
+
+    &.Circle {
+        @include KindPosition(2, 11);
+        background-position: -38px -98px;
+    }
+}  
+
+.plane {
+    &--online {
+        @include KindPosition(1, 5);
+    }
+    &--offline {
+        @include KindPosition(2, 5);
+    }
+}

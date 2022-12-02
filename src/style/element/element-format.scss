@@ -1,0 +1,128 @@
+// tabs 间距问题
+
+.el-tabs {
+    height: 100%;
+
+    &--top {
+        .el-tabs__content {
+            height: calc(100% - 39px);
+            padding: var(--default-padding)!important;
+        }
+    }
+
+    &--left {
+        .el-tabs__header.is-left {
+            margin: 0!important;
+        }
+        .el-tabs__content {
+            height: 100%;
+        }
+    }
+
+
+    .el-tab-pane {
+        height: 100%;
+    }
+}
+
+.el-tabs__item {
+    height: 30px;
+}
+
+
+.el-tabs--card {
+    .el-tabs__item {
+        height: 36px;
+        line-height: 36px;
+    }
+    .el-tabs__header {
+        margin: 0!important;
+    }
+    .el-tabs__content {
+        overflow-y: auto;
+    }
+}
+
+
+.el-tabs--border-card {
+    border: 0!important;
+    box-shadow: none!important;
+
+    .el-tabs__content {
+        padding: 0!important;
+    }
+}
+
+
+
+
+
+.el-table {
+    font-size: 13px;
+
+    th{
+        &.el-table__cell {
+            background-color: var(--background-color-base)!important;
+            font-weight: unset;
+            color: var(--color-text-regular);
+        }
+
+        &:last-child {
+            &.el-table__cell {
+                background-color: var(--color-white)!important;
+            }
+        }
+    }
+    .cell {
+        white-space: nowrap !important;
+    }
+}
+
+.el-table__fixed {
+    transition: all 0.3s;
+}
+
+.el-table__fixed-right {
+    transition: all 0.5s;
+}
+
+
+
+
+
+.el-dialog {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+
+    .el-dialog__body {
+        height: calc(100% - 200px);
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 10px;
+    }
+}
+
+
+
+// form
+.el-form-item__unit {
+    display: flex;
+    align-items: center;
+
+    .control {
+      flex: 1;
+    }
+
+    .unit {
+        margin-left: 8px;
+    }
+}
+
+.el-form {
+    .el-input-number--mini {
+        height: 29px;
+    }
+}
+
+// dialog 

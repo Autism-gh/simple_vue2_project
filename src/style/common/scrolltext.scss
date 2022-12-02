@@ -1,0 +1,17 @@
+::v-deep.Belongingbase {
+    .theme-default {
+        max-width: 100%;
+        overflow-y: hidden !important;
+        overflow: auto;
+        
+    }
+    .el-tree-node__children {
+        overflow: visible !important;
+    }
+    .element-tree-node__label {
+        overflow: visible !important;
+    }
+}
+::v-deep .el-descriptions-item__content {
+    display: grid !important;
+}
