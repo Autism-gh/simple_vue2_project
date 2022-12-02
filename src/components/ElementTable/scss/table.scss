@@ -53,7 +53,6 @@
             align-items: center;
             width: max-content;
             margin-right: var(--default-padding);
-            margin-bottom: var(--default-padding);
 
             .title {
                 padding-right: var(--default-padding);
@@ -103,8 +102,12 @@
             }
         }
 
-        .extand-floor {
+        /deep/ .extand-floor {
             margin-top: var(--default-padding);
+
+            .filter-item {
+                margin-bottom: var(--default-padding);
+            }
         }
     }
 

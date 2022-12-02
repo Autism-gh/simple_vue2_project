@@ -238,7 +238,7 @@
             },
           ],
   
-          gridTag: 'productionPlan',
+          gridTag: 'OnlyTable',
   
           fieldConfig,
   

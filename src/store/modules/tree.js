@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import { isString, isObject } from '@/util/common/type-check'
-import * as TreeGetters from '../util'
-
+import { vehicleModel, JapanModel } from '@/components/ElementTree/util/treeMockData'
 const request = {
     /**
      * 走 API 用的
@@ -11,8 +10,11 @@ const request = {
     refreshDataInfo: async(type) => {
         let apiReturn
         switch (type) {
-            case 'vehicleCompany':
-                apiReturn = await TreeGetters.formatCompanyTree()
+            case 'vehicleModel':
+                apiReturn = vehicleModel
+                break;
+            case 'japanModel':
+                apiReturn = JapanModel
                 break;
         }
         request[type] = apiReturn

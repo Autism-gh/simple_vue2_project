@@ -36,9 +36,10 @@ const mixin = {
             this.$set(this.pagesize, item, defaultPage)
             this.$set(this.total, item, 0)
 
-
+            
             this.$watch(() => {
-                return this.$store.getters.columnsSettings[item]
+                const formatTag = `${ store.state.columns.prefix }__${item}`
+                return this.$store.getters.columnsSettings[formatTag]
             }, (val) => {
                 this.$set(this.checkedField, item, val?.fields)
                 this.$set(this.pinned, item, val?.pinned)

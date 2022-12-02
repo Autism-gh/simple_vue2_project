@@ -18,6 +18,8 @@ const getters = {
     errorLogs: state => state.errorLog.logs,
 
     columnsSettings: state => state.columns.columnsSettings,
+
+    treeData: state => state.tree.treeData
   }
   
   export default getters
