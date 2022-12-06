@@ -69,7 +69,7 @@
                             <slot :data="row" :name="`table-${item.components}`"></slot>
                         </template>
                         <template v-else>
-                            {{ row.table_formatter[item.field] || row[item.field] || '-' }}
+                            {{ row.table_formatter[item.field] || row[item.field] | filterFieldValue }}
                         </template>
                     </template>
 
@@ -344,6 +344,16 @@ export default {
             return this.checkedField.filter(item => isObject(item))
         }
     },
+
+    filters: {
+        filterFieldValue(value) {
+            if(value === null || value === undefined || value === '') {
+                return '-'
+            } else {
+                return value
+            }
+        }
+    },  
 
     watch: {
         formatChecked: {
