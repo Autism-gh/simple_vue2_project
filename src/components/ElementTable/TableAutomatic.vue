@@ -524,9 +524,9 @@ export default {
         async handleFieldChange() {
             let resultField = []
 
-            this.fixedIndex = this.pinned > 0
+            this.fixedIndex = this.pinned >= this.preColumns.length
             await this.$nextTick()
-            this.fixedCheckbox = this.pinned >= this.preColumns.length
+            this.fixedCheckbox = this.pinned > 0
 
             if(!this.gridTag || !this.formatChecked?.length) {
                 // 没配好的可能还没格式化
