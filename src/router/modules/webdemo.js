@@ -8,7 +8,7 @@ const demoRouter = {
     redirect: 'noRedirect',
     name: 'demo',
     meta: {
-        title: 'WEB組件測試',
+        title: '組件測試',
         icon: 'el-icon-star-off'
     },
     children: [

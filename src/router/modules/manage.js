@@ -9,7 +9,7 @@ const manageRouter = {
     name: 'manage',
     meta: {
         title: '管理',
-        icon: 'icon-assetsmanage'
+        icon: 'el-icon-coin'
     },
     children: [
         {
