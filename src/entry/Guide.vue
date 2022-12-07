@@ -1,6 +1,10 @@
 <template>
     <div class="app-guide">
+        <img :src="happpyJif" />
+
         <span>{{ title }}</span>
+
+        <img :src="happpyJif" />
     </div>
 </template>
 <script>
@@ -11,7 +15,10 @@
         data() {
             return {
                 //   title: defaultSettings.title,
-                title: '欢迎使用 ^_^'
+
+                title: '欢迎使用 ^_^',
+
+                happpyJif: require('@/assets/images/headpic/happy.gif')
             }
         },
         computed: {
@@ -44,15 +51,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
         background-size: cover;
+        padding-bottom: 10%;
         // filter: opacity(70%);
 
         span {
             color: var(--color-info);
             letter-spacing: 2px;
             font-size: 50px;
-            margin-bottom: 10%;
+            padding-left: 30px;
         }
     }
 </style>
