@@ -1,10 +1,10 @@
 <template>
     <div class="app-guide">
-        <img :src="happpyJif" />
+        <!-- <img :src="happpyJif" /> -->
 
         <span>{{ title }}</span>
 
-        <img :src="happpyJif" />
+        <!-- <img :src="happpyJif" /> -->
     </div>
 </template>
 <script>
