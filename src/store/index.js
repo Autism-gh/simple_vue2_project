@@ -21,7 +21,7 @@ export default new Vuex.Store({
         }),
         createPersistedState({
             storage: window.localStorage,
-            paths: [],
+            paths: ['columns'],
         })
     ]
 })
