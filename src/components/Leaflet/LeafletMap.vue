@@ -40,6 +40,22 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
+            <div class="row">
+              <el-dropdown trigger="click">
+                <span class="el-dropdown-link">
+                  <IconBtn icon="el-icon-map-location" title="地图来源"></IconBtn>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-radio-group v-model="control.acctiveMap" @change="mapSourceChange">
+                    <div class="custom-drop-row" v-for="item in control.mapSourceList" :key="item.key">
+                      <el-radio :label="item.key">
+                        {{ item.name }}
+                      </el-radio>
+                    </div>
+                  </el-radio-group>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
           </div>
           <div :class="control.show ? 'functionopen' : 'functionclose'" class="right_top_btn"
             @click="control.show = !control.show">
@@ -79,7 +95,6 @@
   import DrawTool from './util/drawcenter'
   import mapmixin from './mapmixin'
   import {
-    acctiveMap,
     leafletMapIcon
   } from './maputils'
   export default {
@@ -115,8 +130,6 @@
       return {
         mapInstance: null,
 
-        mapTitleLayer: null,
-
         waitForInit: null,
 
         promiseResolve: null,
@@ -146,10 +159,8 @@
        */
       generateMap() {
         this.mapInstance = L.map(this.$refs['leafletref'], this.formatOptions)
-        this.mapTitleLayer = L.tileLayer.chinaProvider(acctiveMap, {
-          maxZoom: 18,
-          minZoom: 3
-        }).addTo(this.mapInstance);
+
+        this.mapSourceChange()
 
         this.addControOnMap()
         this.reflashMap()
@@ -254,7 +265,9 @@
 <style lang="scss">
   .custom-drop-row {
     padding: 0 8px;
-    line-height: 20px;
+    height: 24px;
+    display: flex;
+    align-items: center;
 
     &.no-data {
       text-align: center

@@ -26,6 +26,8 @@ export default {
 
             minimapLayer: null,
 
+            mapTitleLayer: null,
+
             trafficLayer: null,
 
             addressPopup: null,
@@ -37,6 +39,8 @@ export default {
             },
 
             control: {
+                acctiveMap,
+
                 searchSwitch: true,
                 bottomSwitch: false,
 
@@ -64,6 +68,14 @@ export default {
                 ],
                 oldselect: ['search_control', 'center_address', 'scale_control'],
                 selectList: ['search_control', 'center_address', 'scale_control'],
+                mapSourceList: [{
+                    name: '高德地图',
+                    key: 'GaoDe.Normal.Map'
+                },
+                {
+                    name: '高德卫星',
+                    key: 'GaoDe.Satellite.Map'
+                }],
                 map: []
             },
 
@@ -230,40 +242,58 @@ export default {
             }
         },
 
+        /**
+         * 地图切换
+         * @param {*} type 
+         */
+         mapSourceChange() {
+            if(this.mapTitleLayer) {
+                this.mapTitleLayer.remove()
+                this.mapTitleLayer = null
+            }
+
+            this.mapTitleLayer = L.tileLayer.chinaProvider(this.control.acctiveMap, {
+                maxZoom: 18,
+                minZoom: 3
+            }).addTo(this.mapInstance);
+
+            const state = this.control.selectList.includes('mini_control')
+            this.changeMiniMapLayer(state)
+        },
+
 
         /**
          * 鹰眼地图 -----------------------------------------
          * @param {*} type 
          */
         changeMiniMapLayer(type) {
-            if (type) {
-                if (!this.minimapLayer) {
-                    const titleLayer = L.tileLayer.chinaProvider(acctiveMap, {
-                        maxZoom: 13,
-                        minZoom: 3
-                    })
-                    this.minimapLayer = L.control.minimap(titleLayer, {
-                        position: "bottomright",
-                        toggleDisplay: true,
-                        collapsedWidth: 20,
-                        collapsedHeight: 20,
-                        minimized: true,
-                        aimingRectOptions: {
-                            color: "#ff1100",
-                            weight: 2
-                        },
-                        shadowRectOptions: {
-                            color: "#0000AA",
-                            weight: 1,
-                            opacity: 0,
-                            fillOpacity: 0
-                        }
-                    }).addTo(this.mapInstance)
-                } else {
-                    this.minimapLayer.addTo(this.mapInstance)
-                }
-            } else {
-                this.minimapLayer && this.minimapLayer.remove()
+            if (this.minimapLayer) {
+                this.minimapLayer.remove()
+                this.minimapLayer = null
+            }
+
+            if(type) {
+                const titleLayer = L.tileLayer.chinaProvider(this.control.acctiveMap, {
+                    maxZoom: 13,
+                    minZoom: 3
+                })
+                this.minimapLayer = L.control.minimap(titleLayer, {
+                    position: "bottomright",
+                    toggleDisplay: true,
+                    collapsedWidth: 20,
+                    collapsedHeight: 20,
+                    minimized: true,
+                    aimingRectOptions: {
+                        color: "#ff1100",
+                        weight: 2
+                    },
+                    shadowRectOptions: {
+                        color: "#0000AA",
+                        weight: 1,
+                        opacity: 0,
+                        fillOpacity: 0
+                    }
+                }).addTo(this.mapInstance)
             }
         },
 
