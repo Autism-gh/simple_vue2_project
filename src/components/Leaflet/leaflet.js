@@ -30,6 +30,11 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import './lib/Leaflet-Rotatedmarker'
 
 
+/**
+ *  zoomslider
+ */
+// require('./lib/Leaflet.zoomSlider')
+// import './scss/leaflet-zommslider.scss'
 
 
 /**
