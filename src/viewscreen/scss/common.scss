@@ -1,0 +1,28 @@
+.screen-Layout {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    .range-layout--50 {
+        width: 50%;
+        border: solid 1px #e5e5e5;
+    }
+
+    .range-layout--33 {
+        width: calc(100% / 3);
+    }
+
+    .range-layout--66 {
+        width: calc((100% / 3) * 2);
+    }
+
+    .range-layout--25 {
+        width: 25%;
+        border: solid 1px #e5e5e5;
+    }
+
+    .range-layout--75 {
+        width: 75%;
+    }
+}
+

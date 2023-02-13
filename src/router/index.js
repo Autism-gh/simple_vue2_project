@@ -112,6 +112,7 @@ export const constantRoutes = [{
 /* Router Modules */
 import manageRouter from './modules/manage'
 import demoRouter from './modules/webdemo'
+import screenRouter from './modules/screen'
 
 /**
  * 
@@ -129,6 +130,8 @@ export const asyncRoutes = [
 
     // 调试的
     demoRouter,
+
+    screenRouter,
 
     // 摊开的菜单
     // ...manageRouter,
