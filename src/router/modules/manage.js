@@ -13,7 +13,7 @@ const manageRouter = {
     },
     children: [
         {
-            path: '/ontable',
+            path: 'ontable',
             component: () => import('@/views/pageDemo/OnlyTable/OnlyTable'),
             name: 'OnlyTable',
             meta: {
@@ -21,7 +21,7 @@ const manageRouter = {
             }
         },
         {
-            path: '/doubletable',
+            path: 'doubletable',
             component: () => import('@/views/pageDemo/DoubleTable/DoubleTable'),
             name: 'DoubleTable',
             meta: {
@@ -29,7 +29,7 @@ const manageRouter = {
             }
         },
         {
-            path: '/treeAndTable',
+            path: 'treeAndTable',
             component: () => import('@/views/pageDemo/TreeAndTable/TreeAndTable'),
             name: 'TreeAndTable',
             meta: {
