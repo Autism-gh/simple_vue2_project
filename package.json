@@ -21,7 +21,6 @@
         "leaflet-rotatedmarker": "^0.2.0",
         "leaflet.markercluster": "^1.5.3",
         "moment": "^2.29.3",
-        "node-sass": "^4.11.0",
         "nprogress": "^0.2.0",
         "path-browserify": "^1.0.1",
         "pinyin-match": "^1.2.2",
@@ -45,7 +44,8 @@
         "postcss-loader": "^2.0.8",
         "postcss-px-to-viewport": "^1.1.1",
         "postcss-url": "^7.2.1",
-        "sass-loader": "8.0.2",
+        "node-sass": "6.0.1",
+        "sass-loader": "10.2.1",
         "vue-template-compiler": "^2.6.14"
     }
 }
