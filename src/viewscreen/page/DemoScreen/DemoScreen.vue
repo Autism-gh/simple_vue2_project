@@ -2,7 +2,7 @@
     <TopBottom class="demoscreen">
         <template slot="header">
             <div class="demoscreen__header">
-                我是标题头VW
+                我是标题头horizontalvw
             </div>
         </template>
         <template slot="left">
